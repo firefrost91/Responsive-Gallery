@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Responsive Image Gallery</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function(){
+  var paused= false ;
+  $(".head").click(function(){
+    $(".thumbnail").slideToggle(400);
+  });
+  $(".thumbnail").click(function(){
+    $("#main-image").attr('src',
+      $(this).attr('src')) ,
+    $("#main-image").attr('alt',
+        $(this).attr('alt'))
+      $(".caption_text_main").slideUp("slow");
+  });
+  $("#main-image").click(function(){
+      $(".caption_text_main").html($("#main-image").attr("alt"));
+        $(".caption_text_main").slideToggle(1000);
+        paused = !paused ;
+  });
+  var counter = 1 ;
+  // $("#Image"+counter).click();
+  $('#Next').click(function(){
+    counter = counter+1 ;
+    if(counter>9){counter=1}
+    $("#Image"+counter).click();
+  })
+  $('#Prev').click(function(){
+    counter = counter-1 ;
+    if(counter<1){counter=9}
+    $("#Image"+counter).click();
+  })
+
+setInterval(function(){
+  if(!paused){
+  $("#Next").click()}} , 5000 ) ;
+
+  $( "#Dark" ).on("click", function() {
+              if( $( "body" ).hasClass( "dark" )) {
+                  $( "body" ).removeClass( "dark" );
+                  // $( ".change" ).text( "OFF" );
+              } else {
+                  $( "body" ).addClass( "dark" );
+                  // $( ".change" ).text( "ON" );
+              }
+          });
+
+
+
+});
+
+
+    </script>
+
+    <h1 class="head">Responsive Image Gallery </h1>
+    <div class="container-btn"><button class="btn btn-info"id="Dark">Dark Mode</button></div>
+    <div class="subhead"><em>Panel below is Collapsible</em></div>
+    <div class="container-fluid">
+          <img id="Image1" class="thumbnail" src="Images/1.jpeg" alt="Image 1">
+          <div class="caption_text">Image 1</div>
+          <img id="Image2"class="thumbnail" src="Images/2.jpeg" alt="Image2"/>
+          <div class="caption_text">Image 2</div>
+          <img id="Image3"class="thumbnail" src="Images/3.jpeg" alt="Image 3"/>
+          <div class="caption_text">Image 3</div>
+          <img id="Image4"class="thumbnail" src="Images/4.jpeg" alt="Image 4"/>
+          <div class="caption_text">Image 4</div>
+          <img id="Image5"class="thumbnail" src="Images/4.jpeg" alt="Image 5">
+          <div class="caption_text">Image 5</div>
+          <img id="Image6" class="thumbnail" src="Images/6.jpeg" alt="Image 6">
+          <div class="caption_text">Image 6</div>
+          <img id="Image7"class="thumbnail" src="Images/7.jpeg" alt="Image 7">
+          <div class="caption_text">Image 7</div>
+          <img id="Image8" class="thumbnail" src="Images/9.jpeg" alt="Image 8">
+          <div class="caption_text">Image 8</div>
+          <img id="Image9" class="thumbnail" src="Images/10.jpeg" alt="Image 9">
+          <div class="caption_text">Image 9</div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+          <div class="container"> <div class="caption_text_main">this</div>
+          <img id="main-image"  src="Images/1.jpeg" alt="Image1"/>
+          <h3> <em>Click to unveil caption</em></h3>
+          <button class="btn btn-info" id="Prev"><span class="glyphicon glyphicon-menu-left"></span></button>
+          <button class="btn btn-info" id="Next"><span class="glyphicon glyphicon-menu-right"></span></button>
+        </div>
+      </div>
+          </div>
+  </body>
+</html>
